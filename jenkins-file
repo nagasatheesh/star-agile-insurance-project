@@ -5,10 +5,16 @@ pipeline {
       maven 'M2_HOME'
     }
   stages {
+    stage('maven -v') {
+       steps {
+         echo 'Check maven version'
+         sh mvn --version 
+	 }
+       }
     
     stage('git Checkout') {
        steps {
-         echo 'Checkout thee code from GitRepo'
+         echo 'Checkout the code from GitRepo'
          git  'https://github.com/Fatima-Ishrath021/star-agile-insurance-project.git'
 	 }
        }
