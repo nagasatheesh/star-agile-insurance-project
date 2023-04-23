@@ -8,7 +8,7 @@ pipeline {
     
     stage('git Checkout') {
        steps {
-         echo 'Checkout the code from GitRepo'
+         echo 'Checkout thee code from GitRepo'
          git  'https://github.com/Fatima-Ishrath021/star-agile-insurance-project.git'
 	 }
        }
