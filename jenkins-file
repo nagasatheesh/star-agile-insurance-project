@@ -5,12 +5,6 @@ pipeline {
       maven 'M2_HOME'
     }
   stages {
-    stage('maven -v') {
-       steps {
-         echo 'Check maven version'
-         sh mvn --version 
-	 }
-       }
     
     stage('git Checkout') {
        steps {
