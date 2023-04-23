@@ -25,6 +25,12 @@ pipeline {
 	} 
 
     
+    stage('Docker Image Creation') {
+        steps {
+        sh 'docker build -t fatima021/insurance-project:latest .'
+        }
+      }
+
 
 
 
