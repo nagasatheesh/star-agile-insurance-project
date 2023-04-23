@@ -37,7 +37,10 @@ pipeline {
     			 }
    			}
   			}
-
+    stage('Docker Push') {
+          steps{
+            sh "docker push fatima021/insurance-project:latest "}
+        }
 
 
 }
