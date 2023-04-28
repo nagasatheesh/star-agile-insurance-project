@@ -39,6 +39,12 @@ pipeline {
 	}
 	}
 	}
+	
+      stage('Docker Push') {
+          steps{
+            sh "docker push aravindrevalli59/insurance-project:latest"
+	    }
+        }
 
        
        
