@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
        steps {
          echo 'Checkout the code from GitRepo'
-         git  'https://github.com/aravindrevalli59/star-agile-insurance-project.git'
+         git  'https://github.com/Dineshdevop1/star-agile-insurance-project.git'
 	 }
        }
        stage('Build the Application'){
@@ -25,38 +25,8 @@ pipeline {
 	}  
 	stage('Docker Image Creation') {
         steps {
-	sh 'docker build -t aravindrevalli59/insurance:latest .'
+	sh 'docker build -t dineshk1996/insurance:latest .'
         }
       }
-        stage('Docker Login') {
-        steps {withCredentials([usernamePassword(credentialsId: 'docker login', passwordVariable: 'dhubpsswd', usernameVariable: 'dhubuser')]) {
-        sh "docker login -u ${env.dhubuser} -p ${env.dhubpsswd}"
-    			 }
-   			}
-			}
-			stage('Docker Push') 
-        { steps {
-            sh "docker push aravindrevalli59/insurance "
-        }}
-	stage ('deploying ansible-playbook')
-        { steps {
-        ansiblePlaybook credentialsId: 'ansiblelogin', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'ansible-playbook.yml'
-        }
-	}
-	
-        
-			
-			
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       
-       }
-       }
+      }
+      }
