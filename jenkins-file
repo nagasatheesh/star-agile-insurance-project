@@ -38,6 +38,13 @@ pipeline {
         steps {
             sh "docker push dineshk1996/insurance "
         }}
+	stage ('deploying ansible-playbook')
+        { steps {
+        ansiblePlaybook credentialsId: 'ansiblelogin', disableHostKeyChecking: true, installation: 'ansible', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'
+        }
+	}  
+	
+	
 	
 	
 	}
